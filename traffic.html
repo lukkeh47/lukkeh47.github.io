@@ -1,177 +1,141 @@
 <!DOCTYPE HTML>
-<!--
-	TXT by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Zachry Traffic</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+	    <style>
+	      /* Always set the map height explicitly to define the size of the div
+	       * element that contains the map. */
+	      #map {
+	        height: 500px;
+	        width: 100%;
+	      }
+	 	</style>
 	</head>
 	<body>
 		<div id="page-wrapper">
 
-			<!-- Header -->
-				<header id="header">
-					<div class="logo container">
-						<div>
-							<h1><a href="index.html" id="logo">Traffic Map</a></h1>
-						</div>
+			<header id="header">
+				<div class="logo container">
+					<div>
+						<h1><a href="index.html" id="logo">Traffic Map</a></h1>
 					</div>
-				</header>
+				</div>
+			</header>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="eventpage.html">Event Calendar</a></li>
 					<li class="current"><a href="traffic.html">Traffic Map</a></li>
 					<li><a href="buildings.html">Buildings and hours</a></li>
-					<!--<li><a href="left-sidebar.html">Left Sidebar</a></li>-->
 					<li>
 						<a href="#">Reference Sites</a>
 						<ul>
-							<li><a href="#">College Station Home</a></li>
-							<li><a href="#">Engineering School Home</a></li>
-							<li>
-								<a href="#">Engineering Majors</a>
-								<ul>
-									<li><a href="#">Electrical and Computer</a></li>
-									<li><a href="#">Mechanical</a></li>
-									<li><a href="#">Petroleum</a></li>
-									<li><a href="#">Computer Science</a></li>
-								</ul>
-							</li>
+							<li><a href="http://www.cstx.gov/">College Station Home</a></li>
+							<li><a href="https://engineering.tamu.edu/">Engineering School Home</a></li>
 						</ul>
 					</li>
 				</ul>
 			</nav>
 
-			<!-- Main -->
-				<div id="main-wrapper">
-					<div id="main" class="container">
-						<div class="row">
-							<div class="12u">
-								<div class="content">
+			<div id="main-wrapper">
+				<div id="main" class="container">
+					<div class="row">
+						<div class="12u">
+							<div class="content">
+								<article class="box page-content">
+									<section>
+									    <div id="map"></div>
+										<script>
+									      var map;
+									      function initMap() {
+									        map = new google.maps.Map(document.getElementById('map'), {
+									          center: {lat: 30.621, lng: -96.341},
+									          zoom: 16
+									        });
 
-									<!-- Content -->
+									        // enable traffic layer
+									        var trafficLayer = new google.maps.TrafficLayer();
+									        trafficLayer.setMap(map);
+									      }
+									    </script>
+									    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfDDYzYxEoUD45D66lNERFs5pNZ06E19g&callback=initMap"
+									    async defer></script>
+										</section>		
+								</article>
 
-										<article class="box page-content">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-											<header>
-												<h2>Map</h2>
-												<p>Campus map displays...</p>
-												<ul class="meta">
-													<li class="icon fa-clock-o">Updated yesterday</li>
-												</ul>
-											</header>
-
-											<section>
-												<span class="image featured"><img src="images/pic05.jpg" alt="" /></span>
-												<p>
-													This will use the Google maps API to show surrouding traffic
-												</p>
+			<div id="main-wrapper">
+				<div id="main" class="container"> 
+					<div class="row 200%">
+						<div class="12u">
+							<section class="box features">
+								<h2 class="major"><span>Restaurants</span></h2>
+								<div>
+									<div class="row">
+										<div class="3u 12u(mobile)">
+											<section class="box feature">
+												<a href="https://www.tacobell.com" class="image featured"><img src="images/taco_bell_logo.jpg" alt="" /></a>
+												<a href="https://www.google.com/maps/place/Taco+Bell/@30.6209912,-96.364825,13z/data=!4m8!1m2!2m1!1staco+bell!3m4!1s0x86468395c47f582f:0xd1255701a77c9d97!8m2!3d30.6218042!4d-96.3422457" class="image featured"><img src="images/taco_bell_status.png" alt="" /></a>
+												<a href="https://www.tacobell.com/food/new">Nutrition &amp; Menu</a>
 											</section>
-
-											
-										</article>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Restaurants -->
-				<div id="main-wrapper">
-					<div id="main" class="container"> 
-						<div class="row 200%">
-							<div class="12u">
-								<section class="box features">
-									<h2 class="major"><span>Restaurants</span></h2>
-									<div>
-										<div class="row">
-											<div class="3u 12u(mobile)">
-
-												<section class="box feature">
-													<a href="#" class="image featured"><img src="images/taco_bell_logo.jpg" alt="" /></a>
-													<a href="#" class="image featured"><img src="images/taco_bell_status.png" alt="" /></a>
-												</section>
-
-											</div>
-											<div class="3u 12u(mobile)">
-											
-												<section class="box feature">
-													<a href="#" class="image featured"><img src="images/mcdonalds_logo.png" alt="" /></a>
-													<a href="#" class="image featured"><img src="images/mcdonalds_status.png" alt="" /></a>
-											</div>
-											<div class="3u 12u(mobile)">
-													
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/chipotle_logo.png" alt="" /></a>
-															<a href="#" class="image featured"><img src="images/chipotle_status.png" alt="" /></a>
-												</div>
-												<div class="3u 12u(mobile)">
-
-													<!-- Feature -->
-														<section class="box feature">
-															<a href="#" class="image featured"><img src="images/ihop_logo.jpg" alt="" /></a>
-															<a href="#" class="image featured"><img src="images/ihop_status.png" alt="" /></a>
-												</div>
-											</div>
-											<div class="row">
-												<div class="12u">
-													<ul class="actions">
-														<li><a href="#" class="button big">Learn More</a></li>
-													</ul>
-												</div>
-											</div>
 										</div>
-									</section>
-							</div>
+										<div class="3u 12u(mobile)">				
+											<section class="box feature">
+												<a href="https://www.mcdonalds.com/us/en-us.html" class="image featured"><img src="images/mcdonalds_logo.png" alt="" /></a>
+												<a href="https://www.google.com/maps/place/McDonald's/@30.6211389,-96.3421121,17z/data=!4m8!1m2!2m1!1staco+bell!3m4!1s0x0:0xff15ec2840bad2a2!8m2!3d30.6221341!4d-96.3419612" class="image featured"><img src="images/mcdonalds_status.png" alt="" /></a>
+												<a href="https://www.mcdonalds.com/us/en-us/full-menu.html?cid=RF:YXT_LS:SI::MGBM">Nutrition &amp; Menu</a>
+
+										</div>
+										<div class="3u 12u(mobile)">					
+											<section class="box feature">
+												<a href="https://www.chipotle.com" class="image featured"><img src="images/chipotle_logo.png" alt="" /></a>
+												<a href="https://www.google.com/maps/place/Chipotle+Mexican+Grill/@30.6213836,-96.3422784,18z/data=!4m8!1m2!2m1!1staco+bell!3m4!1s0x0:0xe2baf9d27109d7ef!8m2!3d30.6223511!4d-96.3413282" class="image featured"><img src="images/chipotle_status.png" alt="" /></a>
+												<a href="https://www.chipotle.com/nutrition-calculator">Nutrition &amp; Menu</a>
+										</div>
+										<div class="3u 12u(mobile)">
+												<section class="box feature">
+													<a href="https://www.ihop.com" class="image featured"><img src="images/ihop_logo.jpg" alt="" /></a>
+													<a href="https://www.google.com/maps/place/IHOP/@30.62242,-96.342281,19z/data=!4m8!1m2!2m1!1staco+bell!3m4!1s0x0:0x515fcbe0936ed484!8m2!3d30.62271!4d-96.34142" class="image featured"><img src="images/ihop_status.png" alt="" /></a>
+													<a href="https://www.ihop.com/menus/main-menu">Nutrition &amp; Menu</a>
+
+										</div>
+									</div>									
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
+			</div>
 
-			<!-- Footer -->
 			<footer id="footer" class="container">
-				<div class="row 200%">
-					<div class="12u">
-
-						<!-- Contact -->
-							<section>
-								<h2 class="major"><span>Share your events!</span></h2>
-								<ul class="contact">
-									<li><a class="icon fa-facebook" href="#"><span class="label">Facebook</span></a></li>
-									<li><a class="icon fa-twitter" href="#"><span class="label">Twitter</span></a></li>
-								</ul>
-							</section>
-
-					</div>
+				<div id="copyright">
+					<ul class="menu">
+						<li>&copy; The Fungineers. All rights reserved</li>
+						<li>
+							Design: <a href="http://html5up.net">HTML5 UP</a>
+						</li>
+					</ul>
 				</div>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul class="menu">
-							<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
-
 			</footer>
 
-	</div>
+		</div>
 
-	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/skel-viewport.min.js"></script>
 		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 </html>
